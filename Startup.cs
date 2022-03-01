@@ -21,7 +21,13 @@ namespace Saite_1
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            
             app.UseRouting();
+           
+            app.UseEndpoints(endpoints => 
+            {
+                endpoints.MapControllerRoute(name: "default", "{controller=Car}/{action=List}");
+            });
         }
     }
 }
