@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Saite_1.Data.interfaces;
+using Saite_1.ViewModels;
 
 namespace Saite_1.Controllers
 {
@@ -13,11 +14,12 @@ namespace Saite_1.Controllers
             _allCars = iAllCars;
             _allCategoris = iCarsCat;
         }
-
         public ViewResult List()
         {
-            var cars = _allCars.Cars;
-            return View(cars);
+            CarsListViewModel obj = new CarsListViewModel();
+            obj.allCars = _allCars.Cars;
+            obj.currCategory = "Категории";
+            return View(obj);
         }
     }
 }
